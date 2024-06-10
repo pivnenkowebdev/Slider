@@ -14,7 +14,6 @@ const motion = (e) => {
 
     if (isControllButton) {
         const indexCurrentBtnControll = controllList.indexOf(e.target.closest('[data-button-controll]'));
-        btnControllStyle(isControllButton);
         counterSlide = indexCurrentBtnControll;
     }
 
@@ -23,13 +22,14 @@ const motion = (e) => {
     } else if (isLeftArrow) {
         counterSlide = (counterSlide > 0) ? counterSlide - 1 : slides.length - 1;
     }
+    btnControllStyle(counterSlide);
     track.style.transform = `translateX(-${moveWidth * counterSlide}px)`;
 }
 
-const btnControllStyle = (currentBtn) => {
+const btnControllStyle = (indexCurrentBtn) => {
     const activeBtn = slider.querySelector('button.active');
     activeBtn.classList.remove('active');
-    currentBtn.classList.add('active');
+    controllList[indexCurrentBtn].classList.add('active');
 }
 
 slider.addEventListener('click', motion);
