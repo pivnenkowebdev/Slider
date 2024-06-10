@@ -12,7 +12,7 @@ const motion = (e) => {
             counterSlide++;
         }
     }
-    if (counterSlide !== 0) {
+    if (counterSlide > 0) {
         if (e.target.closest('[data-arrow="left"]')) {
             counterSlide--;
         }
