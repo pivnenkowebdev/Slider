@@ -1,0 +1,113 @@
+body {
+    background-color: rgb(22, 11, 51);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.slider {
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.slider__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.slider__arrow:hover {
+    box-shadow: 0 0 6px #fff;
+    cursor: pointer;
+}
+
+.slider__arrow--left {
+    left: -50px;
+}
+
+.slider__arrow--right {
+    right: -50px;
+}
+
+.slider__arrow-icon {
+    stroke: rgb(22, 11, 51);
+}
+
+.slider__content {
+    overflow: hidden;
+}
+
+.slider__track {
+    display: flex;
+    column-gap: 10px;
+}
+
+.slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    min-width: 100%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(173, 173, 229);
+}
+
+.slide__avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.slide__text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.controll {
+    position: absolute;
+    bottom: -26px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    column-gap: 12px;
+}
+
+.controll__item {
+    flex-shrink: 0;
+}
+
+.controll__wrapper-btn {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.controll__btn {
+    width: 12px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 40px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.controll__btn:hover {
+    transform: scaleX(1.7);
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="./js/main.js"></script>
+</head>
+<body>
+    <svg style="display: none;">
+        <symbol viewBox="0 0 128 128" id="arrowLeft">
+            <path d="M87.5 111L40.5 64" stroke-width="12" stroke-miterlimit="10" stroke-linecap="square"/>
+            <path d="M40.5 64L87.5 17" stroke-width="12" stroke-miterlimit="10" stroke-linecap="square"/>
+        </symbol>
+        <symbol viewBox="0 0 128 128" id="arrowRight">
+            <path d="M40.5 17L87.5 64" stroke-width="12" stroke-miterlimit="10" stroke-linecap="square"/>
+            <path d="M87.5 64L40.5 111" stroke-width="12" stroke-miterlimit="10" stroke-linecap="square"/>
+        </symbol>
+    </svg>
+    <div class="slider">
+        <button class="slider__arrow slider__arrow--left">
+            <svg class="slider__arrow-icon">
+                <use xlink:href="#arrowLeft"></use>
+            </svg>
+        </button>
+        <div class="slider__content">
+            <div class="slider__track">
+                <div class="slide">
+                    <div class="slide__avatar">
+                        <img class="slide__img" src="./img/meduza-1.jpg" alt="">
+                    </div>
+                    <p class="slide__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolorum cupiditate amet placeat necessitatibus alias aperiam repellat ab. Odit quos harum sunt debitis deleniti alias iusto facere reiciendis inventore laboriosam.
+                    </p>
+                </div>
+                <div class="slide">
+                    <div class="slide__avatar">
+                        <img class="slide__img" src="./img/meduza-2.jpg" alt="">
+                    </div>
+                    <p class="slide__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolorum cupiditate amet placeat necessitatibus alias aperiam repellat ab. Odit quos harum sunt debitis deleniti alias iusto facere reiciendis inventore laboriosam.
+                    </p>
+                </div>
+                <div class="slide">
+                    <div class="slide__avatar">
+                        <img class="slide__img" src="./img/meduza-3.jpg" alt="">
+                    </div>
+                    <p class="slide__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolorum cupiditate amet placeat necessitatibus alias aperiam repellat ab. Odit quos harum sunt debitis deleniti alias iusto facere reiciendis inventore laboriosam.
+                    </p>
+                </div>
+                <div class="slide">
+                    <div class="slide__avatar">
+                        <img class="slide__img" src="./img/meduza-4.jpg" alt="">
+                    </div>
+                    <p class="slide__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolorum cupiditate amet placeat necessitatibus alias aperiam repellat ab. Odit quos harum sunt debitis deleniti alias iusto facere reiciendis inventore laboriosam.
+                    </p>
+                </div>
+                <div class="slide">
+                    <div class="slide__avatar">
+                        <img class="slide__img" src="./img/meduza-5.jpg" alt="">
+                    </div>
+                    <p class="slide__text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolorum cupiditate amet placeat necessitatibus alias aperiam repellat ab. Odit quos harum sunt debitis deleniti alias iusto facere reiciendis inventore laboriosam.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button class="slider__arrow slider__arrow--right">
+            <svg class="slider__arrow-icon">
+                <use xlink:href="#arrowRight"></use>
+            </svg>
+        </button>
+        <ul class="controll">
+            <li class="controll__item">
+                <label class="controll__wrapper-btn">
+                    <button class="controll__btn"></button>
+                </label>
+            </li>
+            <li class="controll__item">
+                <label class="controll__wrapper-btn">
+                    <button class="controll__btn"></button>
+                </label>
+            </li>
+            <li class="controll__item">
+                <label class="controll__wrapper-btn">
+                    <button class="controll__btn"></button>
+                </label>
+            </li>
+            <li class="controll__item">
+                <label class="controll__wrapper-btn">
+                    <button class="controll__btn"></button>
+                </label>
+            </li>
+            <li class="controll__item">
+                <label class="controll__wrapper-btn">
+                    <button class="controll__btn"></button>
+                </label>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
