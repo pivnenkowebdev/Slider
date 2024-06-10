@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/main.css">
-    <script src="./js/main.js"></script>
+    <script src="./js/main.js" defer="defer"></script>
 </head>
 <body>
     <svg style="display: none;">
@@ -20,15 +20,15 @@
             <path d="M87.5 64L40.5 111" stroke-width="12" stroke-miterlimit="10" stroke-linecap="square"/>
         </symbol>
     </svg>
-    <div class="slider">
-        <button class="slider__arrow slider__arrow--left">
+    <div class="slider" id="slider">
+        <button class="slider__arrow slider__arrow--left" data-arrow="left">
             <svg class="slider__arrow-icon">
                 <use xlink:href="#arrowLeft"></use>
             </svg>
         </button>
         <div class="slider__content">
-            <div class="slider__track">
-                <div class="slide">
+            <div class="slider__track" id="track">
+                <div class="slide" data-slide>
                     <div class="slide__avatar">
                         <img class="slide__img" src="./img/meduza-1.jpg" alt="">
                     </div>
@@ -36,7 +36,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolorum cupiditate amet placeat necessitatibus alias aperiam repellat ab. Odit quos harum sunt debitis deleniti alias iusto facere reiciendis inventore laboriosam.
                     </p>
                 </div>
-                <div class="slide">
+                <div class="slide" data-slide>
                     <div class="slide__avatar">
                         <img class="slide__img" src="./img/meduza-2.jpg" alt="">
                     </div>
@@ -44,7 +44,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolorum cupiditate amet placeat necessitatibus alias aperiam repellat ab. Odit quos harum sunt debitis deleniti alias iusto facere reiciendis inventore laboriosam.
                     </p>
                 </div>
-                <div class="slide">
+                <div class="slide" data-slide>
                     <div class="slide__avatar">
                         <img class="slide__img" src="./img/meduza-3.jpg" alt="">
                     </div>
@@ -52,7 +52,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolorum cupiditate amet placeat necessitatibus alias aperiam repellat ab. Odit quos harum sunt debitis deleniti alias iusto facere reiciendis inventore laboriosam.
                     </p>
                 </div>
-                <div class="slide">
+                <div class="slide" data-slide>
                     <div class="slide__avatar">
                         <img class="slide__img" src="./img/meduza-4.jpg" alt="">
                     </div>
@@ -60,7 +60,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolorum cupiditate amet placeat necessitatibus alias aperiam repellat ab. Odit quos harum sunt debitis deleniti alias iusto facere reiciendis inventore laboriosam.
                     </p>
                 </div>
-                <div class="slide">
+                <div class="slide" data-slide>
                     <div class="slide__avatar">
                         <img class="slide__img" src="./img/meduza-5.jpg" alt="">
                     </div>
@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-        <button class="slider__arrow slider__arrow--right">
+        <button class="slider__arrow slider__arrow--right" data-arrow="right">
             <svg class="slider__arrow-icon">
                 <use xlink:href="#arrowRight"></use>
             </svg>
@@ -78,27 +78,27 @@
         <ul class="controll">
             <li class="controll__item">
                 <label class="controll__wrapper-btn">
-                    <button class="controll__btn active"></button>
+                    <button class="controll__btn active" data-button-controll></button>
                 </label>
             </li>
             <li class="controll__item">
                 <label class="controll__wrapper-btn">
-                    <button class="controll__btn"></button>
+                    <button class="controll__btn" data-button-controll></button>
                 </label>
             </li>
             <li class="controll__item">
                 <label class="controll__wrapper-btn">
-                    <button class="controll__btn"></button>
+                    <button class="controll__btn" data-button-controll></button>
                 </label>
             </li>
             <li class="controll__item">
                 <label class="controll__wrapper-btn">
-                    <button class="controll__btn"></button>
+                    <button class="controll__btn" data-button-controll></button>
                 </label>
             </li>
             <li class="controll__item">
                 <label class="controll__wrapper-btn">
-                    <button class="controll__btn"></button>
+                    <button class="controll__btn" data-button-controll></button>
                 </label>
             </li>
         </ul>
