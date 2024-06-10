@@ -7,18 +7,16 @@ const moveWidth = slideWidth + gapBetweenSlides;
 let counterSlide = 0;
 
 const motion = (e) => {
-    if (counterSlide < slides.length - 1) {
-        if (e.target.closest('[data-arrow="right"]')) {
-            counterSlide++;
-        }
+    const isRightArrow = e.target.closest('[data-arrow="right"]');
+    const isLeftArrow = e.target.closest('[data-arrow="left"]');
+
+    if (isRightArrow) {
+        counterSlide = (counterSlide < slides.length - 1) ? counterSlide + 1 : 0;
+    } else if (isLeftArrow) {
+        counterSlide = (counterSlide > 0) ? counterSlide - 1 : slides.length - 1;
     }
-    if (counterSlide > 0) {
-        if (e.target.closest('[data-arrow="left"]')) {
-            counterSlide--;
-        }
-    }
+
     track.style.transform = `translateX(-${moveWidth * counterSlide}px)`;
-    
 }
 
 slider.addEventListener('click', motion);
