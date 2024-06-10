@@ -1,12 +1,18 @@
 body {
-    background-color: rgb(22, 11, 51);
+    background-color: rgb(186, 161, 248);
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    padding: 0 30px;
+}
+
+.review__content {
+
 }
 
 .slider {
+
     position: relative;
     max-width: 800px;
     width: 100%;
@@ -39,7 +45,7 @@ body {
 }
 
 .slider__arrow-icon {
-    stroke: rgb(22, 11, 51);
+    stroke: rgb(18, 9, 41);
 }
 
 .slider__content {
@@ -60,7 +66,8 @@ body {
     min-width: 100%;
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: rgb(173, 173, 229);
+    background-color: rgb(18, 9, 41);
+    text-align: center;
 }
 
 .slide__avatar {
@@ -110,4 +117,25 @@ body {
 
 .controll__btn:hover {
     transform: scaleX(1.7);
+}
+
+.controll__btn.active {
+    transform: scaleX(1.7);
+    background-color: rgb(18, 9, 41);
+}
+
+@media (max-width: 930px) {
+    .slider__arrow--left {
+        left: -20px;
+    }
+    
+    .slider__arrow--right {
+        right: -20px;
+    }
+}
+
+@media (max-width: 425px) {
+    .slider__arrow {
+        display: none;
+    }
 }
