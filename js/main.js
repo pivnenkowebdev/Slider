@@ -6,24 +6,58 @@ const gapBetweenSlides = parseFloat(getComputedStyle(track).columnGap);
 const slideWidth = slides[0].offsetWidth;
 const moveWidth = slideWidth + gapBetweenSlides;
 let counterSlide = 0;
+let trackPos = 0;
+let isDragging = false;
+let startPoint = 0;
+let endPoint = 0;
 
-const motion = (e) => {
+const motion = () => {
+    track.style.transform = `translateX(-${moveWidth * counterSlide}px)`;
+    btnControllStyle(counterSlide);
+}
+    
+const handlerControllElements = (e) => {
     const isRightArrow = e.target.closest('[data-arrow="right"]');
     const isLeftArrow = e.target.closest('[data-arrow="left"]');
     const isControllButton = e.target.closest('[data-button-controll]');
 
     if (isControllButton) {
-        const indexCurrentBtnControll = controllList.indexOf(e.target.closest('[data-button-controll]'));
+        const indexCurrentBtnControll = controllList.indexOf(isControllButton);
         counterSlide = indexCurrentBtnControll;
     }
 
     if (isRightArrow) {
-        counterSlide = (counterSlide < slides.length - 1) ? counterSlide + 1 : 0;
+        choiceOfDirection('right');
     } else if (isLeftArrow) {
+        choiceOfDirection('left');
+    }
+
+    motion(counterSlide);
+}
+
+const choiceOfDirection = (direction) => {
+    if (direction === 'right') {
+        counterSlide = (counterSlide < slides.length - 1) ? counterSlide + 1 : 0;
+    } else if (direction === 'left') {
         counterSlide = (counterSlide > 0) ? counterSlide - 1 : slides.length - 1;
     }
-    btnControllStyle(counterSlide);
-    track.style.transform = `translateX(-${moveWidth * counterSlide}px)`;
+}
+
+const handlerGrabAction = () => {
+    startPoint > endPoint ? choiceOfDirection('right') : choiceOfDirection('left');
+    motion(counterSlide);
+}
+
+const drag = (e) => {
+    trackPos = track.getBoundingClientRect();
+    isDragging = true;
+    startPoint = e.clientX - trackPos.left;
+}
+
+const dragEnd = (e) => {
+    isDragging = false;
+    endPoint = e.clientX - trackPos.left;
+    handlerGrabAction();
 }
 
 const btnControllStyle = (indexCurrentBtn) => {
@@ -32,4 +66,6 @@ const btnControllStyle = (indexCurrentBtn) => {
     controllList[indexCurrentBtn].classList.add('active');
 }
 
-slider.addEventListener('click', motion);
+slider.addEventListener('click', handlerControllElements);
+track.addEventListener('mousedown', drag);
+track.addEventListener('mouseup', dragEnd);

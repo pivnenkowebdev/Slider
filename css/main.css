@@ -12,7 +12,6 @@ body {
 }
 
 .slider {
-
     position: relative;
     max-width: 800px;
     width: 100%;
@@ -70,6 +69,7 @@ body {
     border-radius: 10px;
     background-color: rgb(18, 9, 41);
     text-align: center;
+    user-select: none;
 }
 
 .slide__avatar {
