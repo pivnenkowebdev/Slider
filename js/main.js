@@ -7,7 +7,6 @@ const slideWidth = slides[0].offsetWidth;
 const moveWidth = slideWidth + gapBetweenSlides;
 const minMove = 20;
 let counterSlide = 0;
-let trackPos = 0;
 let startPoint = 0;
 let endPoint = 0;
 let currentMove = 0;
@@ -16,7 +15,7 @@ const motion = () => {
     track.style.transform = `translateX(-${moveWidth * counterSlide}px)`;
     btnControllStyle(counterSlide);
 }
-    
+
 const handlerControllElements = (e) => {
     const isRightArrow = e.target.closest('[data-arrow="right"]');
     const isLeftArrow = e.target.closest('[data-arrow="left"]');
@@ -44,7 +43,7 @@ const choiceOfDirection = (direction) => {
     }
 }
 
-const handlerGrabAction = () => {
+const handlerMoveAction = () => {
     currentMove = startPoint - endPoint;
     if (Math.abs(currentMove) > minMove) {
         if (currentMove > 0) {
@@ -56,22 +55,26 @@ const handlerGrabAction = () => {
     motion(counterSlide);
 }
 
-const drag = (e) => {
-    trackPos = track.getBoundingClientRect();
-    startPoint = e.clientX - trackPos.left;
+const startHandler = (e) => {
+    const point = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    startPoint = point;
+    endPoint = startPoint;
 }
 
-const dragEnd = (e) => {
-    endPoint = e.clientX - trackPos.left;
-    handlerGrabAction();
+const endHandler = (e) => {
+    const point = e.type.includes('mouse') ? e.clientX : e.changedTouches[0].clientX;
+    endPoint = point;
+    handlerMoveAction();
 }
 
 const btnControllStyle = (indexCurrentBtn) => {
     const activeBtn = slider.querySelector('button.active');
-    activeBtn.classList.remove('active');
+    if (activeBtn) activeBtn.classList.remove('active');
     controllList[indexCurrentBtn].classList.add('active');
 }
 
 slider.addEventListener('click', handlerControllElements);
-track.addEventListener('mousedown', drag);
-track.addEventListener('mouseup', dragEnd);
+track.addEventListener('mousedown', startHandler);
+track.addEventListener('mouseup', endHandler);
+track.addEventListener('touchstart', startHandler);
+track.addEventListener('touchend', endHandler);
