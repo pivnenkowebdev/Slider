@@ -5,11 +5,12 @@ const controllList = Array.from(slider.querySelectorAll('[data-button-controll]'
 const gapBetweenSlides = parseFloat(getComputedStyle(track).columnGap);
 const slideWidth = slides[0].offsetWidth;
 const moveWidth = slideWidth + gapBetweenSlides;
+const minMove = 20;
 let counterSlide = 0;
 let trackPos = 0;
-let isDragging = false;
 let startPoint = 0;
 let endPoint = 0;
+let currentMove = 0;
 
 const motion = () => {
     track.style.transform = `translateX(-${moveWidth * counterSlide}px)`;
@@ -44,18 +45,23 @@ const choiceOfDirection = (direction) => {
 }
 
 const handlerGrabAction = () => {
-    startPoint > endPoint ? choiceOfDirection('right') : choiceOfDirection('left');
+    currentMove = startPoint - endPoint;
+    if (Math.abs(currentMove) > minMove) {
+        if (currentMove > 0) {
+            choiceOfDirection('right');
+        } else {
+            choiceOfDirection('left');
+        }
+    }
     motion(counterSlide);
 }
 
 const drag = (e) => {
     trackPos = track.getBoundingClientRect();
-    isDragging = true;
     startPoint = e.clientX - trackPos.left;
 }
 
 const dragEnd = (e) => {
-    isDragging = false;
     endPoint = e.clientX - trackPos.left;
     handlerGrabAction();
 }
